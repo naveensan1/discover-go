@@ -1,23 +1,14 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"time"
 )
 
-func readMovie() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter Movie Name: ")
-	movieName, _ := reader.ReadString('\n')
-	fmt.Println(movieName)
-	if movieName == "\n" {
-		movieName = "Batman"
-	}
-	movies := searchMovies(movieName)
-
+func seqMovieSearch() {
+	movieName := readCommandLine()
 	startTime := time.Now()
+	movies := searchMovies(movieName)
 	for _, movie := range movies {
 		getMovieInfo(movie.ImdbID)
 	}

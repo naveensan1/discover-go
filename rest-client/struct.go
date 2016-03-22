@@ -23,3 +23,10 @@ type Movie struct {
 	Type       string
 	Response   string
 }
+
+//MovieQuery - Search Results
+type MovieQuery struct {
+	Search       []Movie
+	Response     string
+	totalResults string
+}

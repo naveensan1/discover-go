@@ -5,7 +5,7 @@ type Movie struct {
 	Title      string
 	Year       string
 	ImdbRating string
-	ImdbVotes  string
+	ImdbVotes  float32 `json:"ImdbVotes,string"`
 	ImdbID     string
 }
 

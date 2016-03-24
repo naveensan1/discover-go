@@ -6,10 +6,14 @@ import (
 	"time"
 )
 
-func conMovieSearch() {
+func conMovieSearch() error {
 	movieName := readCommandLine()
 	startTime := time.Now()
-	movies := searchMovies(movieName)
+	movies, err := searchMovies(movieName)
+	if err != nil {
+		fmt.Printf("conMovieSearch: %s\n", err)
+		return err
+	}
 	var wg sync.WaitGroup
 
 	for _, movie := range movies {
@@ -21,5 +25,5 @@ func conMovieSearch() {
 	}
 	wg.Wait()
 	fmt.Printf("execution time is %s\n", time.Since(startTime).String())
-
+	return nil
 }

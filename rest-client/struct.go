@@ -4,8 +4,8 @@ package main
 type Movie struct {
 	Title      string
 	Year       string
-	ImdbRating string
-	ImdbVotes  float32 `json:"ImdbVotes,string"`
+	ImdbRating float32 `json:"ImdbRating,string"`
+	ImdbVotes  string
 	ImdbID     string
 }
 

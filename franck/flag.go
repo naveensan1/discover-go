@@ -7,7 +7,7 @@ import (
 
 func main() {
 	movie := flag.String("movie", "", "name of the movie")
-	dicksize := flag.Int("dick", 0, "naveen's")
+	blahblah := flag.Int("blah", 0, "naveen's")
 
 	flag.Parse()
 

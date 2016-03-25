@@ -8,7 +8,15 @@ import (
 	"net/url"
 	"os"
 	"strconv"
+	"sync"
 )
+
+type movieList struct {
+	sync.Mutex
+	movies []string
+}
+
+var m = new(movieList)
 
 func readCommandLine() string {
 	reader := bufio.NewReader(os.Stdin)
@@ -66,7 +74,9 @@ func getMovieInfo(movieImdbID string) {
 		fmt.Printf(err.Error())
 		return
 	}
-	fmt.Printf("The movie : %s was released in %s - the IMBD rating is %.0f%% with %s votes\n", movie.Title, movie.Year, rating*10, movie.ImdbVotes)
+	m.Lock()
+	defer m.Unlock()
+	m.movies = append(m.movies, fmt.Sprintf("The movie : %s was released in %s - the IMBD rating is %.0f%% with %s votes\n", movie.Title, movie.Year, rating*10, movie.ImdbVotes))
 }
 
 func main() {

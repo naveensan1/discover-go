@@ -20,6 +20,10 @@ func conMovieSearch() {
 		}(movie)
 	}
 	wg.Wait()
-	fmt.Printf("execution time is %s\n", time.Since(startTime).String())
+	for _, x := range m.movies {
+		fmt.Printf("%s", x)
+	}
+	m = new(movieList)
+	fmt.Printf("execution time is %s\n\n\n", time.Since(startTime).String())
 
 }

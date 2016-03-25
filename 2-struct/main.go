@@ -27,7 +27,7 @@ func (u *user) Info() {
 		fmt.Println("Couldn't convert user's age from str to int")
 	}
 	age := currentYear - userYearInt
-	fmt.Printf("%s who was born in %s would be %d years old today.\n", localUser.Name, localUser.City, age)
+	fmt.Printf("%s who was born in %s would be %d years old today\n", localUser.Name, localUser.City, age)
 }
 
 func main() {
